@@ -357,14 +357,15 @@ html, body {
 .hero-container {
   position: absolute;
   inset: 0;
-  bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 24px;
+  justify-content: flex-start;
+  padding: 40px 24px 60px 24px;
   z-index: 5;
   overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .hero-content-card {
@@ -382,7 +383,8 @@ html, body {
   border-radius: 24px;
   box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(139, 92, 246, 0.15);
   position: relative;
-  overflow: hidden;
+  flex-shrink: 0;
+  margin: auto 0;
 }
 
 .hero-content-card::before {
@@ -393,6 +395,8 @@ html, body {
   right: 0;
   height: 2px;
   background: linear-gradient(90deg, transparent, #8b5cf6, #06b6d4, transparent);
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
 }
 
 .hero-tag-pill {
@@ -1991,8 +1995,13 @@ html, body {
     padding: 16px;
   }
 
+  .hero-container {
+    padding: 24px 16px 50px 16px;
+  }
+
   .hero-content-card {
-    padding: 32px 18px;
+    padding: 28px 16px;
+    margin: 0;
   }
 
   .hero-title-glitch {
