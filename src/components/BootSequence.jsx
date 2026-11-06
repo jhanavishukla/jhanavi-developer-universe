@@ -64,18 +64,24 @@ export default function BootSequence({ onComplete }) {
 
         <div className="boot-terminal-content">
           <div className="boot-line hero-title">
-            &gt; JHANAVI.EXE
+            &gt; JHANAVI.EXE <span style={{ fontSize: '0.75rem', color: '#06b6d4', fontWeight: 500 }}>// CYBER-TECH OS v2.5</span>
           </div>
 
           {step >= 1 && (
             <div className="boot-line" style={{ color: '#94a3b8' }}>
-              <span>[KERNEL]</span> Initializing memory registers &amp; graphics core...
+              <span style={{ color: '#8b5cf6' }}>[KERNEL]</span> Initializing quantum registers &amp; graphics core...
+            </div>
+          )}
+
+          {step >= 1 && (
+            <div className="boot-line" style={{ color: '#94a3b8', fontSize: '0.82rem' }}>
+              <span style={{ color: '#06b6d4' }}>[NETWORK]</span> AWS ap-south-1 regional gateway connected [OK]
             </div>
           )}
 
           {step >= 2 && (
             <div className="boot-line" style={{ color: '#38bdf8' }}>
-              <span>[UNIVERSE]</span> INITIALIZING DEVELOPER UNIVERSE...
+              <span style={{ color: '#a78bfa' }}>[UNIVERSE]</span> INITIALIZING DEVELOPER UNIVERSE...
             </div>
           )}
 
@@ -91,6 +97,12 @@ export default function BootSequence({ onComplete }) {
               className="boot-progress-bar-fill"
               style={{ width: `${progress}%` }}
             />
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: '#64748b', marginTop: '6px', fontFamily: 'var(--font-mono)' }}>
+            <span>SECURE_BOOT: ENABLED</span>
+            <span>AWS AMPLIFY STATIC HOSTING</span>
+            <span>SYS_OK</span>
           </div>
         </div>
       </div>

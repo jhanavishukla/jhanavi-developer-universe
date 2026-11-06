@@ -123,6 +123,8 @@ export default function Desktop({
           <span style={{ color: '#94a3b8' }}>Nagpur Node [Online]</span>
           <span style={{ color: '#64748b' }}>|</span>
           <span style={{ color: '#38bdf8' }}>AWS Student Builder</span>
+          <span style={{ color: '#64748b' }} className="telemetry-divider">|</span>
+          <span style={{ color: '#a78bfa', fontSize: '0.74rem' }} className="telemetry-pill">LATENCY: 24ms • AP-SOUTH-1</span>
         </div>
 
         <div className="desktop-header-right">
