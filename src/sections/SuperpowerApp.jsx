@@ -239,8 +239,16 @@ export default function SuperpowerApp({ onShowToast, playChime }) {
             ))}
           </div>
 
+          {/* Recommended Weapon */}
+          {currentResult.recommendedWeapon && (
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.78rem', color: '#c4b5fd', background: 'rgba(139, 92, 246, 0.1)', border: '1px solid rgba(139, 92, 246, 0.25)', padding: '4px 12px', borderRadius: '6px', marginBottom: '20px' }}>
+              <Zap size={13} color="#f472b6" />
+              <span>Recommended Tool: <strong>{currentResult.recommendedWeapon}</strong></span>
+            </div>
+          )}
+
           {/* Action Buttons */}
-          <div className="superpower-btn-group">
+          <div className="superpower-btn-group" style={{ marginBottom: '24px' }}>
             <button
               type="button"
               className="superpower-action-btn"
@@ -261,6 +269,47 @@ export default function SuperpowerApp({ onShowToast, playChime }) {
               {copied ? <Check size={16} /> : <Share2 size={16} />}
               <span>{copied ? 'Copied to Clipboard!' : 'Share Superpower'}</span>
             </button>
+          </div>
+
+          {/* Browse all 5 Archetypes Quick Selector */}
+          <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '16px' }}>
+            <div style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: '#94a3b8', marginBottom: '10px' }}>
+              ✦ SWITCH TO ANY SUPERPOWER ARCHETYPE:
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center' }}>
+              {developerSuperpowers.map((sp) => {
+                const IconComponent = iconMap[sp.icon] || Sparkles;
+                const isSelected = sp.id === currentResult.id;
+                return (
+                  <button
+                    key={sp.id}
+                    type="button"
+                    onClick={() => {
+                      setCurrentResult(sp);
+                      if (playChime) playChime();
+                      triggerConfetti(sp.color);
+                    }}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      padding: '4px 10px',
+                      borderRadius: '6px',
+                      fontSize: '0.75rem',
+                      fontFamily: 'var(--font-mono)',
+                      background: isSelected ? `${sp.color}33` : 'rgba(255, 255, 255, 0.03)',
+                      border: isSelected ? `1px solid ${sp.color}` : '1px solid rgba(255, 255, 255, 0.08)',
+                      color: isSelected ? '#ffffff' : '#94a3b8',
+                      cursor: 'pointer',
+                      transition: 'all 0.15s ease'
+                    }}
+                  >
+                    <IconComponent size={12} color={sp.color} />
+                    <span>{sp.title}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       )}

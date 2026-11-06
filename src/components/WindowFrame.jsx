@@ -131,6 +131,7 @@ export default function WindowFrame({
 
           <div id={`window-title-${id}`} className="window-title">
             {Icon && <Icon size={15} color="#8b5cf6" />}
+            <span style={{ opacity: 0.6, fontSize: '0.72rem' }}>JHANAVI.EXE /</span>
             <span>{title}</span>
           </div>
         </div>

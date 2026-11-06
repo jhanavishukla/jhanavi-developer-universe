@@ -18,7 +18,7 @@ export default function TerminalApp({ onOpenApp }) {
   const [history, setHistory] = useState([
     {
       type: 'system',
-      text: "JHANAVI.EXE Shell [Version 2.5.0-student-builder]\n(c) 2024 Jhanavi Shukla. All rights reserved.\nType 'help' to inspect available system commands."
+      text: "╔══════════════════════════════════════════════════════════════╗\n║  JHANAVI.EXE COMMAND TERMINAL [v2.5.0-student-builder]       ║\n║  AWS Student Builder Challenge • Core Architecture Shell      ║\n╚══════════════════════════════════════════════════════════════╝\nType 'help' or click any command chip below to explore."
     }
   ]);
   const [commandHistory, setCommandHistory] = useState([]);
@@ -26,6 +26,11 @@ export default function TerminalApp({ onOpenApp }) {
 
   const scrollRef = useRef(null);
   const inputRef = useRef(null);
+
+  const availableCommands = [
+    'help', 'about', 'skills', 'projects', 'achievements',
+    'superpower', 'github', 'contact', 'aws', 'whoami', 'date', 'clear'
+  ];
 
   // Auto-scroll on new entries
   useEffect(() => {
@@ -53,7 +58,7 @@ export default function TerminalApp({ onOpenApp }) {
           .join('\n');
         outputLine = {
           type: 'output',
-          text: `AVAILABLE TERMINAL COMMANDS:\n${helpLines}\n\nTip: You can also use Up/Down arrow keys to cycle past commands.`
+          text: `AVAILABLE COMMANDS:\n${helpLines}\n\nTip: Press Tab to autocomplete commands. Use Up/Down arrows for history.`
         };
         break;
       }
@@ -234,7 +239,20 @@ export default function TerminalApp({ onOpenApp }) {
         setHistoryPointer(-1);
         setInputVal('');
       }
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      const current = inputVal.trim().toLowerCase();
+      if (!current) return;
+      const match = availableCommands.find((c) => c.startsWith(current));
+      if (match) {
+        setInputVal(match);
+      }
     }
+  };
+
+  const handleChipClick = (cmd) => {
+    executeCommand(cmd);
+    if (inputRef.current) inputRef.current.focus();
   };
 
   return (
@@ -260,6 +278,43 @@ export default function TerminalApp({ onOpenApp }) {
             </div>
           );
         })}
+      </div>
+
+      {/* Interactive Quick Command Suggestion Bar */}
+      <div
+        style={{
+          display: 'flex',
+          gap: '6px',
+          overflowX: 'auto',
+          padding: '8px 14px',
+          background: 'rgba(8, 12, 20, 0.95)',
+          borderTop: '1px solid rgba(255, 255, 255, 0.06)'
+        }}
+        aria-label="Quick Terminal Commands"
+      >
+        <span style={{ fontSize: '0.72rem', color: '#64748b', alignSelf: 'center', fontFamily: 'var(--font-mono)' }}>
+          Quick:
+        </span>
+        {['help', 'about', 'skills', 'projects', 'superpower', 'contact', 'clear'].map((cmd) => (
+          <button
+            key={cmd}
+            type="button"
+            onClick={() => handleChipClick(cmd)}
+            style={{
+              padding: '2px 8px',
+              fontSize: '0.74rem',
+              fontFamily: 'var(--font-mono)',
+              background: 'rgba(139, 92, 246, 0.1)',
+              border: '1px solid rgba(139, 92, 246, 0.25)',
+              color: '#c4b5fd',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            {cmd}
+          </button>
+        ))}
       </div>
 
       <form className="terminal-input-form" onSubmit={handleSubmit}>

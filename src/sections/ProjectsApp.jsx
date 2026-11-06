@@ -7,8 +7,10 @@ import { projectsShowcase } from '../data/portfolioData';
  * Featured projects with original CSS/SVG visual previews (no broken images),
  * tech tags, feature lists, and clearly labeled repository/live demo buttons.
  */
-export default function ProjectsApp() {
+export default function ProjectsApp({ onShowToast }) {
   const [activeModalProject, setActiveModalProject] = useState(null);
+  const [interactiveQrInput, setInteractiveQrInput] = useState('https://github.com/jhanavishukla');
+  const [activeDeviceView, setActiveDeviceView] = useState('desktop');
 
   // Close modal on Escape key press
   useEffect(() => {
@@ -20,6 +22,16 @@ export default function ProjectsApp() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [activeModalProject]);
+
+  const copyCloneCommand = (url) => {
+    const cmd = `git clone ${url}.git`;
+    try {
+      navigator.clipboard.writeText(cmd);
+      if (onShowToast) onShowToast('Clone command copied to clipboard!');
+    } catch {
+      if (onShowToast) onShowToast(cmd);
+    }
+  };
 
   // Render CSS-based visual preview mockup according to project type
   const renderVisualPreview = (type) => {
@@ -249,7 +261,7 @@ export default function ProjectsApp() {
               ))}
             </ul>
 
-            <div style={{ display: 'flex', gap: '10px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               <a
                 href={activeModalProject.githubUrl}
                 target="_blank"
@@ -258,6 +270,14 @@ export default function ProjectsApp() {
               >
                 <Github size={14} /> View Code
               </a>
+              <button
+                type="button"
+                className="project-btn secondary"
+                onClick={() => copyCloneCommand(activeModalProject.githubUrl)}
+                title="Copy git clone command"
+              >
+                <span>Copy Clone CLI</span>
+              </button>
               <a
                 href={activeModalProject.liveUrl}
                 target="_blank"

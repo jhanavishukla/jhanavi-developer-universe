@@ -76,6 +76,41 @@ export default function HeroScreen({ onEnterUniverse, onOpenApp }) {
           </a>
         </div>
 
+        {/* Standout Signature Feature Banner on Hero */}
+        <div
+          style={{
+            marginBottom: '24px',
+            padding: '12px 20px',
+            background: 'linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(139, 92, 246, 0.18))',
+            border: '1px solid rgba(236, 72, 153, 0.35)',
+            borderRadius: '14px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '16px',
+            maxWidth: '540px',
+            width: '100%',
+            cursor: 'pointer',
+            transition: 'all 0.2s ease',
+            boxShadow: '0 0 20px rgba(236, 72, 153, 0.18)'
+          }}
+          onClick={() => onOpenApp('superpower')}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => { if (e.key === 'Enter') onOpenApp('superpower'); }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', textAlign: 'left' }}>
+            <div style={{ width: 36, height: 36, borderRadius: '10px', background: 'linear-gradient(135deg, #ec4899, #8b5cf6)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0 }}>
+              <Sparkles size={18} />
+            </div>
+            <div>
+              <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#ffffff' }}>AWS Challenge Signature Feature</div>
+              <div style={{ fontSize: '0.76rem', color: '#f472b6' }}>Discover Your Developer Superpower ✦ Click to scan</div>
+            </div>
+          </div>
+          <ArrowRight size={16} color="#f472b6" />
+        </div>
+
         {/* Quick Launch Shortcuts underneath */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center' }}>
           <button
