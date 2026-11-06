@@ -134,7 +134,7 @@ export default function TerminalApp({ onOpenApp }) {
       case 'aws': {
         outputLine = {
           type: 'output',
-          text: `AWS STUDENT BUILDER CHALLENGE:\nTheme: ${personalProfile.awsChallenge.theme}\nHosting: AWS Amplify (Static SPA Deployment)\nTarget Region: ${personalProfile.awsChallenge.region}\nStack: React 18, Vite 6, Modern CSS, Lucide Icons`
+          text: `AWS STUDENT BUILDER CHALLENGE:\nTheme: ${personalProfile.awsChallenge.theme}\nStatus: Configured for AWS Amplify Hosting (Ready for Deployment)\nTarget Region: ${personalProfile.awsChallenge.region}\nStack: React 18, Vite 6, Modern CSS, Lucide Icons`
         };
         break;
       }

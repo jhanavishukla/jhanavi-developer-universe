@@ -118,13 +118,11 @@ export default function Desktop({
       <header className="desktop-header-bar">
         <div className="desktop-header-left">
           <span className="status-indicator-dot" />
-          <span style={{ color: '#ffffff', fontWeight: 600 }}>JHANAVI.EXE OS</span>
+          <span style={{ color: '#ffffff', fontWeight: 600 }}>JHANAVI.EXE</span>
           <span style={{ color: '#64748b' }}>|</span>
-          <span style={{ color: '#94a3b8' }}>Nagpur Node [Online]</span>
+          <span style={{ color: '#94a3b8' }}>Ramdeobaba University, Nagpur</span>
           <span style={{ color: '#64748b' }}>|</span>
-          <span style={{ color: '#38bdf8' }}>AWS Student Builder</span>
-          <span style={{ color: '#64748b' }} className="telemetry-divider">|</span>
-          <span style={{ color: '#a78bfa', fontSize: '0.74rem' }} className="telemetry-pill">LATENCY: 24ms • AP-SOUTH-1</span>
+          <span style={{ color: '#38bdf8' }}>AWS Student Builder Challenge</span>
         </div>
 
         <div className="desktop-header-right">

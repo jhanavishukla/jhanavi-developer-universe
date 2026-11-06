@@ -66,9 +66,9 @@ export const personalProfile = {
   awsChallenge: {
     challengeName: "AWS Student Builder Challenge",
     theme: "Build Your Tech Superpower",
-    status: "Project Built for Evaluation",
+    status: "Configured for AWS Amplify Hosting (Ready for Deployment)",
     hosting: "AWS Amplify Hosting",
-    region: "ap-south-1 (Mumbai)"
+    region: "ap-south-1 (Target Region: Mumbai)"
   }
 };
 
@@ -157,7 +157,7 @@ export const projectsShowcase = [
     ],
     githubUrl: "https://github.com/jhanavishukla/qr-code-generator",
     liveUrl: "https://placeholder-qr-demo.netlify.app", // Centralized placeholder
-    isConfigured: false
+    isConfigured: true
   },
   {
     id: "nexcent-landing-page",
@@ -175,14 +175,14 @@ export const projectsShowcase = [
     ],
     githubUrl: "https://github.com/jhanavishukla/nexcent-landing-page",
     liveUrl: "https://placeholder-nexcent-demo.netlify.app", // Centralized placeholder
-    isConfigured: false
+    isConfigured: true
   },
   {
     id: "dsa-ai-tracker",
     title: "DSA Tracker & AI Skills Roadmap",
-    badge: "Full Application",
+    badge: "In Development",
     shortDescription: "A web application built with Vite and React to help students track Data Structures & Algorithms milestones and explore curated AI roadmaps.",
-    fullDescription: "Engineered to solve a personal challenge: keeping track of DSA practice questions across platforms while visualizing the step-by-step learning progression into machine learning and backend engineering.",
+    fullDescription: "Engineered to solve a personal challenge: keeping track of DSA practice questions across platforms while visualizing the step-by-step learning progression into machine learning and backend engineering. (Local development project — to be published to GitHub).",
     tags: ["Vite", "React", "JavaScript", "Modern CSS", "LocalStorage", "Roadmaps"],
     previewType: "tracker-app",
     features: [
@@ -191,7 +191,7 @@ export const projectsShowcase = [
       "Fast Vite-powered development and ultra-light bundle",
       "Built for continuous student self-assessment"
     ],
-    githubUrl: "https://github.com/jhanavishukla/dsa-ai-tracker", // Centralized placeholder
+    githubUrl: "https://github.com/jhanavishukla", // Profile fallback until repo published
     liveUrl: "https://placeholder-dsa-tracker.vercel.app", // Centralized placeholder
     isConfigured: false
   }

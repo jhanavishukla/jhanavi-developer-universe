@@ -75,7 +75,7 @@ export default function BootSequence({ onComplete }) {
 
           {step >= 1 && (
             <div className="boot-line" style={{ color: '#94a3b8', fontSize: '0.82rem' }}>
-              <span style={{ color: '#06b6d4' }}>[NETWORK]</span> AWS ap-south-1 regional gateway connected [OK]
+              <span style={{ color: '#06b6d4' }}>[CHALLENGE]</span> AWS Student Builder: Build Your Tech Superpower
             </div>
           )}
 
@@ -101,7 +101,7 @@ export default function BootSequence({ onComplete }) {
 
           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: '#64748b', marginTop: '6px', fontFamily: 'var(--font-mono)' }}>
             <span>SECURE_BOOT: ENABLED</span>
-            <span>AWS AMPLIFY STATIC HOSTING</span>
+            <span>TARGET HOSTING: AWS AMPLIFY (BUILD READY)</span>
             <span>SYS_OK</span>
           </div>
         </div>
